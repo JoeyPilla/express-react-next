@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Button, Grid, Confirm } from 'semantic-ui-react';
+import Link from 'next/link';
 
 export default class DeviceDropdown extends Component {
     constructor(props) {
-        super();
+        super(props);
         this.state = {
             deleteClicked: false
         };
@@ -28,12 +29,15 @@ export default class DeviceDropdown extends Component {
     }
 
     render() {
+        console.log(this.props.row.original)
         return (
             <div class='deviceDropdownCollection'>
                 <Grid divided='vertically'>
                     <Grid.Row columns={8}>
                         <Grid.Column>
-                            <Button fluid color='green'>Edit</Button>
+                        <Link href={{ pathname: '/editDevice', query: {id:this.props.row.original._id} }}>
+                        <Button fluid color='green'>Edit</Button>
+                        </Link>
                         </Grid.Column>
                         <Grid.Column>
                             <Button fluid color='red' onClick={this.handleDeleteClick}>Delete</Button>

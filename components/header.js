@@ -7,7 +7,7 @@ export default class Header extends Component {
     return (
       <Menu>
       <Menu.Item>
-      <Link prefetch href="/">Home</Link>
+      <Link prefetch href="/index">Home</Link>
       </Menu.Item>
       <Menu.Menu position='right'>
         <div className='ui right aligned category search item'>
