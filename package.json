@@ -1,5 +1,5 @@
 {
-  "name": "custom-server-express",
+  "name": "express-react-next",
   "version": "1.0.0",
   "scripts": {
     "dev": "node ./server/server.js",
@@ -10,6 +10,7 @@
     "@zeit/next-css": "^1.0.1",
     "express": "^4.14.0",
     "match-sorter": "^2.3.0",
+    "moment": "^2.22.2",
     "mongodb": "^3.1.10",
     "next": "^7.0.2",
     "react": "^16.6.3",

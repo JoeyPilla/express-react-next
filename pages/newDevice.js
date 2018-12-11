@@ -20,11 +20,6 @@ export default class newDevice extends Component {
     render() {
             return (
             <div>
-                <Head>
-                    <title>Devices</title>
-                    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-                    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.1/dist/semantic.min.css"/>
-                </Head>
                 <Layout>
                     <Header as='h1' textAlign='center'>
                         <Icon name='microchip'/>
