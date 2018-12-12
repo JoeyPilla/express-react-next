@@ -3,6 +3,7 @@ import Layout from '../components/layout';
 import DeviceGridColumn from '../components/deviceGridColumn';
 import { Form, Header, Icon, Input, Item, Button, Label, Grid } from 'semantic-ui-react';
 import { runInThisContext } from 'vm';
+import axios from 'axios';
 
 export default class editDevice extends Component {
     constructor(props) {
@@ -63,7 +64,6 @@ export default class editDevice extends Component {
                 data.evm = file.name;
                 break;
         }
-
         this.setState({
             data: data,
             files: [...this.state.files, file]
@@ -72,6 +72,14 @@ export default class editDevice extends Component {
 
     handleSubmit(e) {
 
+        e.preventDefault();
+        
+        var data = this.state.data;
+        console.log('data', data)
+        var url = ' http://localhost:3000/api/updateDevice';
+        axios.post(url,data)
+        .then(response=>console.log(response))
+        .catch(e=>console.log(e))
     }
 
     render() {
@@ -124,7 +132,7 @@ export default class editDevice extends Component {
                                 onChange={this.handleFileChange} />
                         </Grid.Row>
                     </Grid>
-                    <Button type='submit' onClick={this.handleFileChange}>Submit</Button>
+                    <Button type='submit' onClick={this.handleSubmit}>Submit</Button>
                 </Layout>
             </div>
         )

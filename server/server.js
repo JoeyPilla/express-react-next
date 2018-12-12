@@ -2,6 +2,7 @@ const express = require('express');
 const next = require('next');
 var mongodb = require('mongodb');
 var ObjectId = require('mongodb').ObjectId; 
+var bodyParser = require('body-parser');
 
 const port = parseInt(process.env.PORT, 10) || 3000
 const dev = process.env.NODE_ENV !== 'production'
@@ -22,6 +23,8 @@ MongoClient.connect(url, {useNewUrlParser:true}, (err, client) => {
 app.prepare()
       .then(() => {
         const server = express()
+        server.use(bodyParser.urlencoded({ extended: false }))
+        server.use(bodyParser.json())
 
         server.get('/', (req, res) => {
           return app.render(req, res, '/index', req.query)
@@ -50,6 +53,30 @@ app.prepare()
           })
         })
         
+        server.post('/api/updateDevice', function(req, res) {
+          var data = req.body;
+          var id = req.body._id;
+          delete data._id;
+          MongoClient.connect(url, {useNewUrlParser:true}, (err, client) => {
+            if (err) {
+              console.log("Can't connect to server", err);
+            } else {
+              console.log("database connected");
+              var db = client.db('expressApp');
+              console.log("connection established");
+              var collection = db.collection('students');
+              collection.updateOne({_id:ObjectId(id)}, {$set : data}, (err, resp) => {
+                if (err) {
+                  console.log("Can't connect to server", err);
+                } else {
+                  console.log('successfully updated doc')
+                  res.send('success');
+                }
+              })
+            }
+          })
+        });
+
         server.get('/api/getDevice/:id', (req, res) => {
           console.log('here')
           var id = req.params.id;
