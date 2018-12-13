@@ -6,13 +6,18 @@ import moment from 'moment';
 export default class DeviceGridColumn extends Component {
     constructor(props) {
         super(props);
+        this.handleOnClick = this.handleOnClick.bind(this);
+    }
+
+    handleOnClick() {
+        console.log('clicked', this.props.name)
     }
 
     render() {
         return (
             <Grid.Column className="segment centered">
                 <Segment textAlign='center'>
-                    <Header as='h3'>
+                    <Header as='h3' onClick={this.handleOnClick}>
                     {this.props.name}
                     {this.props.file ?
                                 <Icon color='green' name='check'/>
@@ -21,7 +26,7 @@ export default class DeviceGridColumn extends Component {
                     }
                     </Header>
                     {this.props.file ?
-                        <div>
+                        <div onClick={this.handleOnClick}>
                             <div>
                                 <span className='uploads'>This device's dieplot has been updated {this.props.count} times.</span>
                             </div>
@@ -30,7 +35,7 @@ export default class DeviceGridColumn extends Component {
                             </div>
                         </div>
                     : 
-                        <div>
+                        <div onClick={this.handleOnClick}>
                             <div>
                                 <span className='uploads'>This device does not have a {this.props.name.toLowerCase()} on file.</span>
                             </div>
