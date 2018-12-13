@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import Layout from '../components/layout';
 import DeviceGridColumn from '../components/deviceGridColumn';
-import { Form, Header, Icon, Input, Item, Button, Label, Grid } from 'semantic-ui-react';
+import { Form, Header, Icon, Input, Item, Button, Divider, Grid } from 'semantic-ui-react';
 import { runInThisContext } from 'vm';
 import axios from 'axios';
+import DropZone from '../components/dropZone';
 
 export default class editDevice extends Component {
     constructor(props) {
@@ -15,6 +16,7 @@ export default class editDevice extends Component {
 
         this.handleFileChange = this.handleFileChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleFileDrops = this.handleFileDrops.bind(this);
     }
 
     static getInitialProps({ query: { id } }) {
@@ -70,6 +72,24 @@ export default class editDevice extends Component {
         })
     }
 
+    handleFileDrops(files) {
+        Array.from(files).forEach(file => {
+            var name = file.name.toLowerCase();
+            if (name.includes('pin')) {
+                this.handleFileChange(file,'Pinout');
+            } else if (name.includes('db') || name.includes('database')){
+                this.handleFileChange(file,'Database');
+            } else if (name.includes('assura')){
+                this.handleFileChange(file,'Assura');
+            } else if (name.includes('datas') || name.includes('spec')){
+                this.handleFileChange(file,'Datasheet');
+            } else if (name.includes('evm')){
+                this.handleFileChange(file,'EVM');
+            }
+        });
+    }
+
+
     handleSubmit(e) {
 
         e.preventDefault();
@@ -90,7 +110,7 @@ export default class editDevice extends Component {
                         <Icon name='microchip' />
                         {this.state.data.name}
                     </Header>
-                    <Grid columns='equal' divided>
+                    <Grid columns='equal' divided stackable>
                         <Grid.Row>
                             <DeviceGridColumn
                                 name='Dieplot'
@@ -129,9 +149,14 @@ export default class editDevice extends Component {
                                 file={this.state.data.evm}
                                 count={this.state.data.evmUpdateCount}
                                 date={this.state.data.evmLastUpdateDate}
-                                onChange={this.handleFileChange} />
+                                onChange={this.handleFileChange}/>
                         </Grid.Row>
                     </Grid>
+                    <Divider horizontal>Or</Divider>
+                    <DropZone 
+                        onDrop={this.handleFileDrops}
+                    >
+                    </DropZone>
                     <Button type='submit' onClick={this.handleSubmit}>Submit</Button>
                 </Layout>
             </div>

@@ -204,25 +204,173 @@ function (_Component) {
     value: function render() {
       var _this = this;
 
-      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_0__["Grid"].Column, null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_0__["Item"], null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_0__["Item"].Content, null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_0__["Item"].Header, {
-        as: "h2"
-      }, this.props.name), this.props.file ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_0__["Item"].Meta, null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_0__["Grid"].Column, {
+        className: "segment centered"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_0__["Segment"], {
+        textAlign: "center"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_0__["Header"], {
+        as: "h3"
+      }, this.props.name, this.props.file ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_0__["Icon"], {
+        color: "green",
+        name: "check"
+      }) : react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_0__["Icon"], {
+        color: "red",
+        name: "close"
+      })), this.props.file ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
         className: "uploads"
-      }, "This device's dieplot has been updated ", this.props.count, " times.")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_0__["Item"].Meta, null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+      }, "This device's dieplot has been updated ", this.props.count, " times.")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
         className: "uploaded"
-      }, "This device's dieplot was last updated on: ", this.props.date ? moment__WEBPACK_IMPORTED_MODULE_2___default()(this.props.date).format("dddd, MMMM Do YYYY, h:mm:ss a") : this.props.date, "."))) : react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_0__["Item"].Meta, null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+      }, "This device's dieplot was last updated on: ", this.props.date ? moment__WEBPACK_IMPORTED_MODULE_2___default()(this.props.date).format("dddd, MMMM Do YYYY, h:mm:ss a") : this.props.date, "."))) : react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
         className: "uploads"
-      }, "This device does not have a ", this.props.name.toLowerCase(), " on file.")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_0__["Item"].Meta, null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, '\0'))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_0__["Item"].Extra, null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_0__["Input"], {
+      }, "This device does not have a ", this.props.name.toLowerCase(), " on file.")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, '\0')), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, '\0'))), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_0__["Input"], {
         type: "file",
+        fluid: true,
         onChange: function onChange(e) {
           return _this.props.onChange(e.target.files[0], _this.props.name);
         }
-      })))));
+      })));
     }
   }]);
 
   return DeviceGridColumn;
 }(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
+
+
+
+/***/ }),
+
+/***/ "./components/dropZone.js":
+/*!********************************!*\
+  !*** ./components/dropZone.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return DropZone; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! semantic-ui-react */ "semantic-ui-react");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+
+
+var DropZone =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(DropZone, _React$Component);
+
+  function DropZone(props) {
+    var _this;
+
+    _classCallCheck(this, DropZone);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(DropZone).call(this, props));
+    _this.state = {
+      className: 'drop-zone-hide'
+    };
+    _this._onDragEnter = _this._onDragEnter.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this._onDragLeave = _this._onDragLeave.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this._onDragOver = _this._onDragOver.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this._onDrop = _this._onDrop.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    return _this;
+  }
+
+  _createClass(DropZone, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      window.addEventListener('mouseup', this._onDragLeave);
+      window.addEventListener('dragenter', this._onDragEnter);
+      window.addEventListener('dragover', this._onDragOver);
+      document.getElementById('dragbox').addEventListener('dragleave', this._onDragLeave);
+      window.addEventListener('drop', this._onDrop);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      window.removeEventListener('mouseup', this._onDragLeave);
+      window.removeEventListener('dragenter', this._onDragEnter);
+      window.addEventListener('dragover', this._onDragOver);
+      document.getElementById('dragbox').removeEventListener('dragleave', this._onDragLeave);
+      window.removeEventListener('drop', this._onDrop);
+    }
+  }, {
+    key: "_onDragEnter",
+    value: function _onDragEnter(e) {
+      this.setState({
+        className: 'drop-zone-show'
+      });
+      e.stopPropagation();
+      e.preventDefault();
+      return false;
+    }
+  }, {
+    key: "_onDragOver",
+    value: function _onDragOver(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+  }, {
+    key: "_onDragLeave",
+    value: function _onDragLeave(e) {
+      this.setState({
+        className: 'drop-zone-hide'
+      });
+      e.stopPropagation();
+      e.preventDefault();
+      return false;
+    }
+  }, {
+    key: "_onDrop",
+    value: function _onDrop(e) {
+      e.preventDefault();
+      var files = e.dataTransfer.files;
+      this.props.onDrop(files); // Upload files
+
+      this.setState({
+        className: 'drop-zone-hide'
+      });
+      return false;
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "dragbox",
+        className: this.state.className
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Segment"], {
+        placeholder: true
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Header"], {
+        icon: true
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Icon"], {
+        name: "file"
+      }), "Quickly drop files here"))));
+    }
+  }]);
+
+  return DropZone;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 
 
@@ -461,6 +609,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vm__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vm__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! axios */ "axios");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _components_dropZone__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/dropZone */ "./components/dropZone.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
@@ -494,6 +643,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 
 
+
 var editDevice =
 /*#__PURE__*/
 function (_Component) {
@@ -511,6 +661,7 @@ function (_Component) {
     };
     _this.handleFileChange = _this.handleFileChange.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.handleFileDrops = _this.handleFileDrops.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -578,6 +729,27 @@ function (_Component) {
       });
     }
   }, {
+    key: "handleFileDrops",
+    value: function handleFileDrops(files) {
+      var _this3 = this;
+
+      Array.from(files).forEach(function (file) {
+        var name = file.name.toLowerCase();
+
+        if (name.includes('pin')) {
+          _this3.handleFileChange(file, 'Pinout');
+        } else if (name.includes('db') || name.includes('database')) {
+          _this3.handleFileChange(file, 'Database');
+        } else if (name.includes('assura')) {
+          _this3.handleFileChange(file, 'Assura');
+        } else if (name.includes('datas') || name.includes('spec')) {
+          _this3.handleFileChange(file, 'Datasheet');
+        } else if (name.includes('evm')) {
+          _this3.handleFileChange(file, 'EVM');
+        }
+      });
+    }
+  }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
@@ -600,7 +772,8 @@ function (_Component) {
         name: "microchip"
       }), this.state.data.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_3__["Grid"], {
         columns: "equal",
-        divided: true
+        divided: true,
+        stackable: true
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_3__["Grid"].Row, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_deviceGridColumn__WEBPACK_IMPORTED_MODULE_2__["default"], {
         name: "Dieplot",
         file: this.state.data.dieplot,
@@ -637,7 +810,11 @@ function (_Component) {
         count: this.state.data.evmUpdateCount,
         date: this.state.data.evmLastUpdateDate,
         onChange: this.handleFileChange
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_3__["Button"], {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_3__["Divider"], {
+        horizontal: true
+      }, "Or"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_dropZone__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        onDrop: this.handleFileDrops
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(semantic_ui_react__WEBPACK_IMPORTED_MODULE_3__["Button"], {
         type: "submit",
         onClick: this.handleSubmit
       }, "Submit")));

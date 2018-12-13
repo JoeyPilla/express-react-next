@@ -93,7 +93,6 @@ app.prepare()
                 if(err) {
                   console.log("error getting the collection", err);
                 } else if (result.length){
-                  console.log(result)
                    res.send({resp: result});
                 } else {
                   // res.send('No documents found');

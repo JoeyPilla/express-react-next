@@ -1,6 +1,7 @@
-import {Input, Item, Grid} from 'semantic-ui-react';
+import { Input, Header, Segment, Grid, Icon} from 'semantic-ui-react';
 import React, { Component } from 'react';
 import moment from 'moment';
+
 
 export default class DeviceGridColumn extends Component {
     constructor(props) {
@@ -9,35 +10,40 @@ export default class DeviceGridColumn extends Component {
 
     render() {
         return (
-            <Grid.Column>
-                <Item>
-                <Item.Content>
-                    <Item.Header as='h2'>{this.props.name}</Item.Header>
-                        {this.props.file ?
+            <Grid.Column className="segment centered">
+                <Segment textAlign='center'>
+                    <Header as='h3'>
+                    {this.props.name}
+                    {this.props.file ?
+                                <Icon color='green' name='check'/>
+                            :
+                                <Icon color='red' name='close'/>
+                    }
+                    </Header>
+                    {this.props.file ?
+                        <div>
                             <div>
-                                <Item.Meta>
-                                    <span className='uploads'>This device's dieplot has been updated {this.props.count} times.</span>
-                                </Item.Meta>
-                                <Item.Meta>
-                                <span className='uploaded'>This device's dieplot was last updated on: {this.props.date? moment(this.props.date).format("dddd, MMMM Do YYYY, h:mm:ss a"): this.props.date}.</span>
-                                </Item.Meta>
-                                
+                                <span className='uploads'>This device's dieplot has been updated {this.props.count} times.</span>
                             </div>
-                        : 
                             <div>
-                                <Item.Meta>
-                                    <span className='uploads'>This device does not have a {this.props.name.toLowerCase()} on file.</span>
-                                </Item.Meta>
-                                <Item.Meta>
-                                    <span>{'\0'}</span>
-                                </Item.Meta>
+                            <span className='uploaded'>This device's dieplot was last updated on: {this.props.date? moment(this.props.date).format("dddd, MMMM Do YYYY, h:mm:ss a"): this.props.date}.</span>
                             </div>
-                        }
-                    <Item.Extra>
-                        <Input type='file' onChange={(e) => this.props.onChange(e.target.files[0], this.props.name)} />
-                    </Item.Extra>
-                </Item.Content>
-            </Item>
+                        </div>
+                    : 
+                        <div>
+                            <div>
+                                <span className='uploads'>This device does not have a {this.props.name.toLowerCase()} on file.</span>
+                            </div>
+                            <div>
+                                <span>{'\0'}</span>
+                            </div>
+                            <div>
+                                <span>{'\0'}</span>
+                            </div>
+                        </div>
+                    }
+                    <Input type='file' fluid onChange={(e) => this.props.onChange(e.target.files[0], this.props.name)} />
+                </Segment>
             </Grid.Column>
         )
     }
