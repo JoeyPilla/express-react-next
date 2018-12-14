@@ -1,13 +1,14 @@
 import React from 'react'
-import Head from 'next/head'
+import Link from 'next/link'
 import Layout from '../components/layout';
 import DevicesTable from '../components/devicesTable';
+import {Button} from 'semantic-ui-react';
 
 export default () => (
   <div>
     <Layout>
-      <DevicesTable>
-      </DevicesTable>
+      <DevicesTable/>
+      <Button onClick={<Link href='/newDevice'></Link>}>New Device</Button>
     </Layout>
   </div>
 )
