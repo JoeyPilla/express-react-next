@@ -14,7 +14,7 @@ export default class DeviceGridColumn extends Component {
                 <Segment textAlign='center'>
                     <Link href={this.props.file}>
                     <div>
-                    <Header as='h3' onClick={this.handleOnClick}>
+                    <Header as='h3'>
                     {this.props.name}
                     {this.props.file ?
                                 <Icon color='green' name='check'/>
@@ -23,16 +23,16 @@ export default class DeviceGridColumn extends Component {
                     }
                     </Header>
                     {this.props.file ?
-                        <div onClick={this.handleOnClick}>
+                        <div>
                             <div>
                                 <span className='uploads'>This device's {this.props.name.toLowerCase()} has been updated {this.props.count} times.</span>
                             </div>
                             <div>
-                            <span className='uploaded'>This device's {this.props.name.toLowerCase()} was last updated on: {this.props.date? moment(this.props.date).format("dddd, MMMM Do YYYY, h:mm:ss a"): this.props.date}.</span>
+                                <span className='uploaded'>This device's {this.props.name.toLowerCase()} was last updated on: {this.props.date? moment(this.props.date).format("dddd, MMMM Do YYYY, h:mm:ss a"): this.props.date}.</span>
                             </div>
                         </div>
                     : 
-                        <div onClick={this.handleOnClick}>
+                        <div>
                             <div>
                                 <span className='uploads'>This device does not have a {this.props.name.toLowerCase()} on file.</span>
                             </div>

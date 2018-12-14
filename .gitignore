@@ -1,2 +1,5 @@
 node_modules/
 semantic/
+data/
+.next/
+HVAL/

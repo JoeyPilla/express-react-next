@@ -8,6 +8,7 @@ const port = parseInt(process.env.PORT, 10) || 3000
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
+const path = require('path');
 
 var url = 'mongodb://localhost:27017/expressApp';
 var MongoClient = mongodb.MongoClient;
@@ -25,7 +26,7 @@ app.prepare()
         const server = express()
         server.use(bodyParser.urlencoded({ extended: false }))
         server.use(bodyParser.json())
-
+        server.use('/HVAL', express.static(path.join(__dirname, '../HVAL')))
         server.get('/', (req, res) => {
           return app.render(req, res, '/index', req.query)
         })

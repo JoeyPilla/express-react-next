@@ -8,7 +8,6 @@ export default () => (
   <div>
     <Layout>
       <DevicesTable/>
-      <Button onClick={<Link href='/newDevice'></Link>}>New Device</Button>
     </Layout>
   </div>
 )

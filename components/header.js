@@ -16,6 +16,9 @@ export default class Header extends Component {
           <Menu.Item>
             <Link href="/">Home</Link>
           </Menu.Item>
+          <Menu.Item>
+            <Link href='/newDevice'>New Device</Link>
+          </Menu.Item>
           <Menu.Menu position='right'>
             <div className='ui right aligned category search item'>
               <div className='ui transparent icon input'>
