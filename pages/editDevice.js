@@ -101,7 +101,7 @@ export default class editDevice extends Component {
         .then(response=>console.log(response))
         .catch(e=>console.log(e))
     }
-
+    
     render() {
         return (
             <div>
