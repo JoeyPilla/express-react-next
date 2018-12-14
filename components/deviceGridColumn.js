@@ -1,22 +1,19 @@
 import { Input, Header, Segment, Grid, Icon} from 'semantic-ui-react';
 import React, { Component } from 'react';
 import moment from 'moment';
-
+import Link from 'next/link';
 
 export default class DeviceGridColumn extends Component {
     constructor(props) {
         super(props);
-        this.handleOnClick = this.handleOnClick.bind(this);
-    }
-
-    handleOnClick() {
-        console.log('clicked', this.props.name)
     }
 
     render() {
         return (
             <Grid.Column className="segment centered">
                 <Segment textAlign='center'>
+                    <Link href={this.props.file}>
+                    <div>
                     <Header as='h3' onClick={this.handleOnClick}>
                     {this.props.name}
                     {this.props.file ?
@@ -28,10 +25,10 @@ export default class DeviceGridColumn extends Component {
                     {this.props.file ?
                         <div onClick={this.handleOnClick}>
                             <div>
-                                <span className='uploads'>This device's dieplot has been updated {this.props.count} times.</span>
+                                <span className='uploads'>This device's {this.props.name.toLowerCase()} has been updated {this.props.count} times.</span>
                             </div>
                             <div>
-                            <span className='uploaded'>This device's dieplot was last updated on: {this.props.date? moment(this.props.date).format("dddd, MMMM Do YYYY, h:mm:ss a"): this.props.date}.</span>
+                            <span className='uploaded'>This device's {this.props.name.toLowerCase()} was last updated on: {this.props.date? moment(this.props.date).format("dddd, MMMM Do YYYY, h:mm:ss a"): this.props.date}.</span>
                             </div>
                         </div>
                     : 
@@ -47,6 +44,8 @@ export default class DeviceGridColumn extends Component {
                             </div>
                         </div>
                     }
+                    </div>
+                    </Link>
                     <Input type='file' fluid onChange={(e) => this.props.onChange(e.target.files[0], this.props.name)} />
                 </Segment>
             </Grid.Column>
