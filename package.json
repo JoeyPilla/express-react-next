@@ -2,15 +2,18 @@
   "name": "express-react-next",
   "version": "1.0.0",
   "scripts": {
-    "dev": "node ./server/server.js",
+    "dev": "nodemon ./server/server.js",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js"
+    "start": "SET NODE_ENV=production node server.js"
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
     "express": "^4.14.0",
+    "express-fileupload": "^1.0.0",
+    "express-form-data": "^2.0.7",
     "match-sorter": "^2.3.0",
     "moment": "^2.22.2",
     "mongodb": "^3.1.10",

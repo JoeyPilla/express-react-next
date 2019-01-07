@@ -11,7 +11,7 @@ export default class editDevice extends Component {
         super(props);
         this.state = {
             data: {},
-            files: []
+            files: [],
         }
 
         this.handleFileChange = this.handleFileChange.bind(this);
@@ -24,7 +24,6 @@ export default class editDevice extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props.id)
         fetch(`/api/getDevice/${this.props.id}`)
             .then(res => res.json())
             .then(user => this.setState({ data: user.resp[0] }));
@@ -33,7 +32,6 @@ export default class editDevice extends Component {
     handleFileChange(file, name) {
         var files = this.state.files;
         var data = this.state.data;
-
         switch (name) {
             case 'Dieplot':
                 data.dieplotUpdateCount ? data.dieplotUpdateCount = data.dieplotUpdateCount++ : data.dieplotUpdateCount = 1;
@@ -68,7 +66,7 @@ export default class editDevice extends Component {
         }
         this.setState({
             data: data,
-            files: [...this.state.files, file]
+            files: [...this.state.files, file],
         })
     }
 
@@ -91,15 +89,24 @@ export default class editDevice extends Component {
 
 
     handleSubmit(e) {
-
-        e.preventDefault();
-        
-        var data = this.state.data;
-        console.log('data', data)
+        const data = new FormData();
+        data.append('file', this.state.files[0],  this.state.files[0].name);
+        console.log(data);
         var url = ' http://localhost:3000/api/updateDevice';
-        axios.post(url,data)
-        .then(response=>console.log(response))
-        .catch(e=>console.log(e))
+        
+        const config = {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+        }
+
+        fetch(url, {
+            method: 'POST',
+            body: data
+        })
+        // axios.post(url, data, config).then(res => {
+        //     console.log(res.statusText);
+        // })
     }
     
     render() {

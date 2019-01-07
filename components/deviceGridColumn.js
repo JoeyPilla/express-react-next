@@ -46,7 +46,7 @@ export default class DeviceGridColumn extends Component {
                     }
                     </div>
                     </Link>
-                    <Input type='file' fluid onChange={(e) => this.props.onChange(e.target.files[0], this.props.name)} />
+                    <input type="file" name="joey" onChange = {(e) => this.props.onChange(e.target.files[0], this.props.name)}/>
                 </Segment>
             </Grid.Column>
         )
